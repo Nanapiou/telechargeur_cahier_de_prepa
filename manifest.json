@@ -2,7 +2,7 @@
     "description": "Permet de télécharger efficacement les fichiers d'un Cahier de Prepa en conservant la structure.",
     "manifest_version": 3,
     "name": "Téléchargeur Cahier de Prepa",
-    "version": "1.0",
+    "version": "1.1",
     "homepage_url": "https://github.com/nanapiou/telechargeur_cahier_de_prepa",
     "browser_specific_settings": {
         "gecko": {
