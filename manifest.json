@@ -4,6 +4,16 @@
     "name": "Téléchargeur Cahier de Prepa",
     "version": "1.0",
     "homepage_url": "https://github.com/nanapiou/telechargeur_cahier_de_prepa",
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "telechargeur_cahier_de_prepa@nanapiou",
+            "data_collection_permissions": {
+                "required": [
+                    "none"
+                ]
+            }
+        }
+    },
     "icons": {
         "32": "icons/icon32.png"
     },

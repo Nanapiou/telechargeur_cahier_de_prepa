@@ -58,9 +58,12 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         } catch (error) {
             setBusy(false);
+            const detail = error instanceof Error ? error.message : String(error);
+            // Hard coded but whatever, error can be anything that heppen in the promise right?
+            const msg = detail === "Could not establish connection. Receiving end does not exist." ? "Ouvrez CdP dans l'onglet actif" : detail;
             setProgress({
                 status: "Erreur",
-                detail: error instanceof Error ? error.message : String(error),
+                detail: msg,
                 percent: 0,
                 indeterminate: false,
             });

@@ -15,9 +15,9 @@ function sendProgress(payload) {
 
 function getRootFolderName() {
     const pathContener = document.getElementById("parentsdoc");
-    const wholePath = pathContener.querySelector(".nom").children;
+    const wholePath = pathContener.querySelector(".nom");
 
-    return wholePath.item(wholePath.length - 1).textContent.trim();
+    return pathContener.querySelector(".nom")?.textContent ?? wholePath.children.item(wholePath.length - 1).textContent.trim();
 }
 
 
@@ -37,7 +37,8 @@ async function startDownload() {
             for (const fileElt of files) {
                 const name = fileElt.querySelector(".nom").textContent.trim();
                 const url = fileElt.querySelector("a").href;
-                const extension = fileElt.querySelector(".docdonnees").textContent.split(",")[0].slice(1);
+                const extension = fileElt.querySelector(".docdonnees")?.textContent.split(",")[0].slice(1);
+                if (!extension) continue; //No perm for this file.
 
                 arbo[name] = {
                     type: "file",
@@ -53,6 +54,8 @@ async function startDownload() {
             for await (const folderElt of folders) {
                 const name = folderElt.querySelector(".nom").textContent.trim();
                 const target = folderElt.querySelector("a").href;
+                const lockedPart = folderElt.querySelector(".icon-minilock");
+                if (lockedPart) continue; // Locked folder
 
                 arbo[name] = {
                     type: "folder",
