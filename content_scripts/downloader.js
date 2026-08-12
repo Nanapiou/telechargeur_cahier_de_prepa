@@ -3,14 +3,10 @@
 const runtime = globalThis.browser?.runtime ?? globalThis.chrome?.runtime;
 
 function sendProgress(payload) {
-    const result = runtime.sendMessage({
+    runtime.sendMessage({
         type: "cdp-progress",
         ...payload,
-    });
-
-    if (result?.catch) {
-        result.catch(() => {});
-    }
+    })?.catch?.(() => {});
 }
 
 function getRootFolderName() {
