@@ -1,0 +1,182 @@
+/* Palette aligned with Cahier de Prepa */
+/* https://cahier-de-prepa.fr/mp*-corneille/css/style.min.css?v=1202 */
+
+:root {
+  --teinte: 220;
+  --texte: black;
+  --liens: hsl(calc(var(--teinte) - 30), 80%, 35%);
+  --liens-visites: hsl(calc(var(--teinte) - 45), 80%, 35%);
+  --fond-opaque: black;
+  --body-fond: hsl(var(--teinte), 2%, 95%);
+  --menu-fond: hsl(var(--teinte), 60%, 75%);
+  --articles-fond: hsl(var(--teinte), 30%, 85%);
+  --article-cache-fond: hsl(var(--teinte), 10%, 80%);
+  --fenetre-fond: hsl(var(--teinte), 90%, 95%);
+  --fenetre-ombre: hsl(var(--teinte), 30%, 55%);
+  --footer-fond: hsl(var(--teinte), 25%, 80%);
+  --topbarre-fond: hsl(var(--teinte), 25%, 75%);
+  --table-hover-fond: hsl(var(--teinte), 60%, 90%);
+  --textarea-fond: hsl(var(--teinte), 60%, 98%);
+  --progression: hsl(var(--teinte), 75%, 75%);
+  --progression-fond: hsl(var(--teinte), 75%, 90%);
+  --menu-titres: hsl(var(--teinte), 80%, 20%);
+  --menu-liens: hsl(var(--teinte), 80%, 35%);
+  --menu-actuel: hsl(calc(var(--teinte) - 180), 80%, 35%);
+  --menu-icones-hover: hsl(var(--teinte), 80%, 85%);
+  --texte-titres1: hsl(var(--teinte), 80%, 20%);
+  --texte-titres2: hsl(var(--teinte), 80%, 30%);
+  --alerte: hsl(0, 80%, 50%);
+  --ok-texte: #090;
+  --ok-fond: #efe;
+  --nok-texte: #d00;
+  --nok-fond: #fee;
+  --nepassortir: hsl(var(--teinte), 80%, 60%);
+  --texte-oubli: #555;
+  --texte-indication: #999;
+  --texte-inactif: #aaa;
+  --topbarre-bord: hsl(var(--teinte), 30%, 40%);
+  --ligne-pointilles: hsl(var(--teinte), 30%, 50%);
+  --table-bord: hsl(var(--teinte), 30%, 35%);
+  --table-interieur: hsl(var(--teinte), 30%, 50%);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --texte: hsl(220, 2%, 95%);
+    --liens: hsl(190, 60%, 60%);
+    --liens-visites: hsl(160, 60%, 60%);
+    --fond-opaque: black;
+    --body-fond: hsl(220, 90%, 5%);
+    --menu-fond: hsl(220, 90%, 15%);
+    --articles-fond: hsl(220, 90%, 12%);
+    --article-cache-fond: hsl(220, 40%, 12%);
+    --fenetre-fond: hsl(220, 40%, 25%);
+    --fenetre-ombre: hsl(220, 40%, 22%);
+    --footer-fond: hsl(220, 10%, 12%);
+    --topbarre-fond: hsl(220, 10%, 20%);
+    --table-hover-fond: hsl(220, 40%, 30%);
+    --textarea-fond: hsl(220, 40%, 30%);
+    --progression: hsl(220, 60%, 10%);
+    --progression-fond: hsl(220, 40%, 40%);
+    --menu-titres: hsl(220, 80%, 70%);
+    --menu-liens: hsl(220, 50%, 90%);
+    --menu-actuel: hsl(220, 60%, 70%);
+    --menu-icones-hover: hsl(220, 60%, 80%);
+    --texte-titres1: hsl(220, 80%, 70%);
+    --texte-titres2: hsl(220, 50%, 90%);
+    --alerte: hsl(0, 80%, 60%);
+    --ok-texte: #efe;
+    --ok-fond: #090;
+    --nok-texte: #d00;
+    --nok-fond: #fee;
+    --nepassortir: #1f5fdf;
+    --texte-oubli: #777;
+    --texte-indication: #666;
+    --texte-inactif: #999;
+    --topbarre-bord: #bbb;
+    --ligne-pointilles: #bbb;
+    --table-bord: #999;
+    --table-interieur: #aaa;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-width: 320px;
+  color: var(--texte);
+  background: transparent;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans,
+    Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+}
+
+body {
+  padding: 0;
+}
+
+.panel {
+  display: grid;
+  gap: 12px;
+  padding: 14px 15px 15px;
+  border: 1px solid var(--table-bord);
+  border-radius: 8px;
+  background-color: var(--fenetre-fond);
+  box-shadow: 0 0.35em 0.8em var(--fenetre-ombre);
+}
+
+h1 {
+  margin: 0;
+  color: var(--texte-titres1);
+  font-size: 1.05rem;
+  line-height: 1.2;
+}
+
+.subtitle,
+.detail {
+  margin: 0;
+  color: var(--texte-indication);
+  line-height: 1.35;
+  font-size: 0.9rem;
+}
+
+.primary {
+  width: 100%;
+  border: 1px solid var(--topbarre-bord);
+  border-radius: 6px;
+  padding: 0.65rem 0.9rem;
+  color: var(--texte);
+  background-color: var(--menu-fond);
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.15s ease, opacity 0.15s ease;
+}
+
+.primary:hover:not(:disabled) {
+  background-color: var(--table-hover-fond);
+}
+
+.primary:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+  color: var(--texte-inactif);
+}
+
+.progressBlock {
+  display: grid;
+  gap: 7px;
+}
+
+.progressMeta {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  color: var(--texte-titres2);
+  font-size: 0.86rem;
+}
+
+progress {
+  width: 100%;
+  height: 13px;
+  border: 1px solid var(--topbarre-bord);
+  border-radius: 999px;
+  overflow: hidden;
+  background: var(--progression-fond);
+}
+
+progress::-webkit-progress-bar {
+  background: var(--progression-fond);
+}
+
+progress::-webkit-progress-value {
+  border-radius: 999px;
+  background: var(--progression);
+}
+
+progress::-moz-progress-bar {
+  border-radius: 999px;
+  background: var(--progression);
+}

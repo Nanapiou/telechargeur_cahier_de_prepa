@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+
+  <body>
+    <main class="panel">
+      <h1>Téléchargeur CdP</h1>
+      <p class="subtitle">Télécharge l'entièreté d'une page de Cahier de Prepa<br>(sous-dossiers compris) dans un ZIP.</p>
+
+      <button id="downloadButton" class="primary">Télécharger</button>
+
+      <div class="progressBlock" aria-live="polite">
+        <div class="progressMeta">
+          <span id="statusLabel">Prêt</span>
+          <span id="progressLabel">0%</span>
+        </div>
+        <progress id="progressBar" value="0" max="100"></progress>
+      </div>
+
+      <p id="detailLabel" class="detail">Aucune tâche en cours.</p>
+    </main>
+    <script src="popup.js"></script>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+{
+    "description": "Permet de télécharger efficacement les fichiers d'un Cahier de Prepa en conservant la structure.",
+    "manifest_version": 3,
+    "name": "Téléchargeur Cahier de Prepa",
+    "version": "1.0",
+    "homepage_url": "https://github.com/nanapiou/telechargeur_cahier_de_prepa",
+    "icons": {
+        "32": "icons/icon32.png"
+    },
+    "permissions": [
+        "activeTab",
+        "scripting",
+        "downloads"
+    ],
+    "host_permissions": [
+        "*://www.cahier-de-prepa.fr/*"
+    ],
+    "action": {
+        "default_icon": "icons/icon32.png",
+        "default_title": "Téléchargeur CdP",
+        "default_popup": "popup/popup.html"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "*://*.cahier-de-prepa.fr/*"
+            ],
+            "js": [
+                "lib/FileSaver.min.js",
+                "lib/jszip.min.js",
+                "content_scripts/downloader.js"
+            ]
+        }
+    ]
+}
